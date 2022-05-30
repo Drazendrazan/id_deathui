@@ -28,7 +28,10 @@ AddEventHandler('esx:onPlayerDeath', function(data)
 
     -- Respawn Player after timer is done
     Citizen.Wait(GlobalState.Timer * 60 * 1000)
-    respawn()
+
+    if IsDead then
+        respawn()
+    end
 end)
 
 AddEventHandler('playerSpawned', function(spawn)
